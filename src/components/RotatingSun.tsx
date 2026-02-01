@@ -1,7 +1,8 @@
 import {useTexture} from "@react-three/drei";
 import {useFrame, useThree} from "@react-three/fiber";
 import {useRef} from "react";
-import {Mesh} from "three";
+import {Mesh, Vector3} from "three";
+import StdPlanet from "./StdPlanet.tsx";
 
 export default function RotatingSun() {
     const sunTexture = useTexture('materials/sun.jpg')
@@ -22,15 +23,24 @@ export default function RotatingSun() {
     const yPos = height - (radius * 4 - 25)
 
     return (
-        <mesh position={[xPos, yPos, zPos]} ref={meshRef} >
-            <sphereGeometry args={[radius, 64, 64]} />
-            <meshStandardMaterial
-                map={sunTexture}
-                emissiveMap={sunTexture}
-                emissive="orange"
-                emissiveIntensity={4.5}
-                toneMapped={false}
+        <group position={[xPos, yPos, zPos]}>
+            <mesh ref={meshRef} >
+                <sphereGeometry args={[radius, 64, 64]} />
+                <meshStandardMaterial
+                    map={sunTexture}
+                    emissiveMap={sunTexture}
+                    emissive="orange"
+                    emissiveIntensity={4.5}
+                    toneMapped={false}
+                />
+            </mesh>
+
+            <StdPlanet
+                texture_path={'materials/volcanic.png'}
+                radius={radius/6}
+                speed={0.05}
+                position={new Vector3((-xPos + radius - 10),0, (radius + radius/6))}
             />
-        </mesh>
+        </group>
     )
 }

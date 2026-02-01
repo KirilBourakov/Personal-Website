@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import {Bloom, EffectComposer} from "@react-three/postprocessing";
 import RotatingSun from "./components/RotatingSun.tsx";
-import OrbitingPlanet from "./components/OrbitingPlanet.tsx";
+import StdPlanet from "./components/StdPlanet.tsx";
 import ClippedPlanet from "./components/ClippedPlanet.tsx";
 
 

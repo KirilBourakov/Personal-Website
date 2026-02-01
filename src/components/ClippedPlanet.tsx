@@ -4,6 +4,7 @@ import {useTexture} from "@react-three/drei";
 import {useRef} from "react";
 import * as THREE from "three";
 
+
 export default function ClippedPlanet(){
     const texture = useTexture('materials/terrestrial.png');
     const cloudTexture = useTexture('materials/clouds.png');
