@@ -10,10 +10,13 @@ export default function App() {
   return (
     <div style={{ height: '100vh', width: '100vw', margin: '0px' }}>
       <Canvas dpr={[1, 1]}>
-          {/*<EffectComposer autoClear={false} multisampling={0}>*/}
-          {/*    <Bloom luminanceThreshold={1} intensity={1.5} selectable />*/}
-          {/*</EffectComposer>*/}
-          {/*<RotatingSun />*/}
+          <EffectComposer autoClear={false} multisampling={0}>
+              <Bloom luminanceThreshold={1} intensity={1.5} selectable />
+          </EffectComposer>
+
+          <ClippedPlanet />
+
+          <RotatingSun />
 
           {/*<OrbitingPlanet texture_path={'materials/volcanic.png'} scale={.25} radius={1.5} speed={1}/>*/}
 
@@ -22,7 +25,7 @@ export default function App() {
           {/*<OrbitingPlanet texture_path={'materials/gaseous.png'} scale={1} radius={5} speed={.33}/>*/}
 
 
-          <ClippedPlanet />
+
 
           <ambientLight intensity={0.5} />
 

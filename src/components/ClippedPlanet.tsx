@@ -25,25 +25,23 @@ export default function ClippedPlanet(){
     const zPos = -radius + 25
 
     return (
+        <group position={[xPos, yPos, zPos]} ref={meshRef}>
+            <mesh >
+                <sphereGeometry args={[radius, 64, 64]} />
+                <meshStandardMaterial
+                    map={texture}
+                />
+            </mesh>
 
-
-    <group position={[xPos, yPos, zPos]} ref={meshRef}>
-        <mesh >
-            <sphereGeometry args={[radius, 64, 64]} />
-            <meshStandardMaterial
-                map={texture}
-            />
-        </mesh>
-
-        <mesh scale={[1.01, 1.01, 1.01]}>
-            <sphereGeometry args={[radius, 64, 64]} />
-            <meshStandardMaterial
-                map={cloudTexture}
-                transparent={true}
-                opacity={0.8}
-                blending={THREE.AdditiveBlending}
-            />
-        </mesh>
-    </group>
+            <mesh scale={[1.01, 1.01, 1.01]}>
+                <sphereGeometry args={[radius, 64, 64]} />
+                <meshStandardMaterial
+                    map={cloudTexture}
+                    transparent={true}
+                    opacity={0.8}
+                    blending={THREE.AdditiveBlending}
+                />
+            </mesh>
+        </group>
     )
 }
