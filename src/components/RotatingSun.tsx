@@ -30,7 +30,7 @@ export default function RotatingSun() {
                     map={sunTexture}
                     emissiveMap={sunTexture}
                     emissive="orange"
-                    emissiveIntensity={4.5}
+                    emissiveIntensity={3.25}
                     toneMapped={false}
                 />
             </mesh>
