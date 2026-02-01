@@ -3,6 +3,8 @@ import {Bloom, EffectComposer} from "@react-three/postprocessing";
 import RotatingSun from "./components/RotatingSun.tsx";
 import StdPlanet from "./components/StdPlanet.tsx";
 import ClippedPlanet from "./components/ClippedPlanet.tsx";
+import {Vector3} from "three";
+import BackPlanet from "./components/BackPlanet.tsx";
 
 
 // 2. Export a new App component that renders the Canvas
@@ -17,6 +19,10 @@ export default function App() {
           <ClippedPlanet />
 
           <RotatingSun />
+
+          <BackPlanet />
+
+
 
 
           <ambientLight intensity={1} />
