@@ -12,14 +12,15 @@ export default function RotatingSun() {
             meshRef.current.rotation.y += delta * 0.5;
         }
     });
+
     return (
-        <mesh position={[2, 0, 0]} ref={meshRef} >
+        <mesh position={[0, 0, 0]} scale={[.5, .5, .5]} ref={meshRef} >
             <sphereGeometry />
             <meshStandardMaterial
                 map={sunTexture}
                 emissiveMap={sunTexture}
                 emissive="orange"
-                emissiveIntensity={4}
+                emissiveIntensity={4.5}
                 toneMapped={false}
             />
         </mesh>
