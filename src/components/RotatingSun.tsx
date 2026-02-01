@@ -4,7 +4,7 @@ import {useRef} from "react";
 import {Mesh} from "three";
 
 export default function RotatingSun() {
-    const sunTexture = useTexture('materials/2k_sun.jpg')
+    const sunTexture = useTexture('materials/sun.jpg')
     const meshRef = useRef<Mesh>(null!)
 
     useFrame((_state, delta) => {
