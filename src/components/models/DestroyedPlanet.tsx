@@ -19,7 +19,7 @@ export function DestroyedPlanet(props) {
 
     useFrame((_state, delta) => {
         if (meshRef.current) {
-            meshRef.current.rotation.z += delta * 0.02;
+            meshRef.current.rotation.z += delta * 0.01;
         }
     });
 
