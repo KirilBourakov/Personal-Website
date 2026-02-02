@@ -1,13 +1,11 @@
 import { Canvas } from '@react-three/fiber'
 import {Bloom, EffectComposer} from "@react-three/postprocessing";
 import RotatingSun from "./components/RotatingSun.tsx";
-import StdPlanet from "./components/StdPlanet.tsx";
 import ClippedPlanet from "./components/ClippedPlanet.tsx";
-import {Vector3} from "three";
 import BackPlanet from "./components/BackPlanet.tsx";
+import CenterShip from "./components/CenterShip.tsx";
 
 
-// 2. Export a new App component that renders the Canvas
 export default function App() {
   return (
     <div style={{ height: '100vh', width: '100vw', margin: '0px' }}>
@@ -22,8 +20,7 @@ export default function App() {
 
           <BackPlanet />
 
-
-
+          <CenterShip />
 
           <ambientLight intensity={1} />
       </Canvas>
