@@ -1,6 +1,8 @@
 import {useThree} from "@react-three/fiber";
 import {Box, Flex} from "@react-three/flex";
 import {DestroyedPlanet} from "./models/DestroyedPlanet.tsx";
+import {Vector3} from "three";
+import StdPlanet from "./StdPlanet.tsx";
 
 export default function MainLayout() {
     const { viewport } = useThree()
@@ -20,6 +22,7 @@ export default function MainLayout() {
                 <Box centerAnchor scale={2} rotation={[-Math.PI / 2, 0, 0]}>
                     <DestroyedPlanet  />
                 </Box>
+                <StdPlanet texture_path={"materials/volcanic.png"} radius={.4} speed={1} position={new Vector3(-.5, -2.4, 2.25)} />
             </Box>
 
         </Flex>
