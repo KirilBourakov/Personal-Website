@@ -1,7 +1,7 @@
 import {useThree} from "@react-three/fiber";
 import {Box, Flex} from "@react-three/flex";
 import DestroyedPlanetGroup from "./DestroyedPlanetGroup.tsx";
-import {IcePlanet} from "./models/IcePlanet.tsx";
+import IcePlanetGroup from "./IcePlanetGroup.tsx";
 
 export default function MainLayout() {
     const { viewport } = useThree()
@@ -20,7 +20,7 @@ export default function MainLayout() {
             position={[-viewport.width / 2, viewport.height / 2, 0]}
         >
             <Box flexDirection="column" >
-                <IcePlanet scale={0.0025}/>
+                <IcePlanetGroup />
             </Box>
 
             <Box  alignSelf="flex-end" flexDirection="column">

@@ -11,7 +11,7 @@ export function IcePlanet(props) {
   return (
     <group {...props} dispose={null}>
       <group>
-        <mesh geometry={nodes.Toy_Planet_4_Toy_Planets_0.geometry} material={materials['Toy_Planets.001']}/>
+        <mesh geometry={nodes.Toy_Planet_4_Toy_Planets_0.geometry} material={materials['Toy_Planets.001']} position={[0, 0, 0]} />
       </group>
     </group>
   )
