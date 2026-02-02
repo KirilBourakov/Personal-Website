@@ -1,13 +1,11 @@
-import { Canvas } from '@react-three/fiber'
+import {Canvas, useThree} from '@react-three/fiber'
 import {Bloom, EffectComposer} from "@react-three/postprocessing";
-import RotatingSun from "./components/RotatingSun.tsx";
-import ClippedPlanet from "./components/ClippedPlanet.tsx";
-import BackPlanet from "./components/BackPlanet.tsx";
-import CenterShip from "./components/CenterShip.tsx";
-import {DestroyedPlanet} from "./components/models/DestroyedPlanet.tsx";
+import MainLayout from "./components/MainLayout";
 
 
 export default function App() {
+
+
   return (
     <div style={{ height: '100vh', width: '100vw', margin: '0px' }}>
       <Canvas dpr={[1, 1]}>
@@ -15,17 +13,20 @@ export default function App() {
               <Bloom luminanceThreshold={1} intensity={2} selectable />
           </EffectComposer>
 
+        <MainLayout />
+
+
           {/*<ClippedPlanet />*/}
 
-          <DestroyedPlanet />
 
-          <RotatingSun />
 
-          <BackPlanet />
+          {/*<RotatingSun />*/}
 
-          <CenterShip />
+          {/*<BackPlanet />*/}
 
-          <ambientLight intensity={1} />
+          {/*<CenterShip />*/}
+
+          <ambientLight intensity={2} />
       </Canvas>
     </div>
   )
