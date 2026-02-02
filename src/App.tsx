@@ -4,6 +4,7 @@ import RotatingSun from "./components/RotatingSun.tsx";
 import ClippedPlanet from "./components/ClippedPlanet.tsx";
 import BackPlanet from "./components/BackPlanet.tsx";
 import CenterShip from "./components/CenterShip.tsx";
+import {DestroyedPlanet} from "./components/models/DestroyedPlanet.tsx";
 
 
 export default function App() {
@@ -14,7 +15,9 @@ export default function App() {
               <Bloom luminanceThreshold={1} intensity={2} selectable />
           </EffectComposer>
 
-          <ClippedPlanet />
+          {/*<ClippedPlanet />*/}
+
+          <DestroyedPlanet />
 
           <RotatingSun />
 
