@@ -4,7 +4,7 @@ import type {Mesh} from "three";
 import {useRef} from "react";
 import Sun from "./models/Sun.tsx";
 
-export default function IcePlanetGroup(){
+export default function SunGroup(){
     const meshRef = useRef<Mesh>(null!)
     useFrame((_state, delta) => {
         if (meshRef.current) {

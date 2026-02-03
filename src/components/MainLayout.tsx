@@ -1,7 +1,7 @@
 import {useThree} from "@react-three/fiber";
 import {Box, Flex} from "@react-three/flex";
 import DestroyedPlanetGroup from "./DestroyedPlanetGroup.tsx";
-import IcePlanetGroup from "./IcePlanetGroup.tsx";
+import SunGroup from "./SunGroup.tsx";
 import ShipGroup from "./ShipGroup.tsx";
 
 export default function MainLayout() {
@@ -22,7 +22,7 @@ export default function MainLayout() {
         >
             <Box flexDirection="column" height={viewport.height} justifyContent="space-between" >
                 <Box>
-                    <IcePlanetGroup />
+                    <SunGroup />
                 </Box>
 
                 <Box>
