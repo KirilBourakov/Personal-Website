@@ -16,8 +16,8 @@ export default function Ship(props) {
 
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
-        shipRef.current.rotation.z = Math.sin(t * 2) * 0.02; // Gentle rocking
-        shipRef.current.position.y = Math.cos(t * 4) * 0.01;  // Slight engine vibration
+        shipRef.current.rotation.z = Math.sin(t * 2) * 0.02;
+        shipRef.current.position.y = Math.cos(t * 4) * 0.01;
     });
 
   return (
