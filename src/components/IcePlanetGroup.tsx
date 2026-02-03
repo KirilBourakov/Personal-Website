@@ -2,6 +2,7 @@ import {IcePlanet} from "./models/IcePlanet.tsx";
 import {useFrame} from "@react-three/fiber";
 import type {Mesh} from "three";
 import {useRef} from "react";
+import Sun from "./models/Sun.tsx";
 
 export default function IcePlanetGroup(){
     const meshRef = useRef<Mesh>(null!)
@@ -12,6 +13,6 @@ export default function IcePlanetGroup(){
     });
 
     return (
-        <IcePlanet scale={0.0025} ref={meshRef}/>
+        <Sun scale={.25} ref={meshRef}/>
     )
 }
