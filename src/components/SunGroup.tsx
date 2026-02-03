@@ -1,4 +1,3 @@
-import {IcePlanet} from "./models/IcePlanet.tsx";
 import {useFrame} from "@react-three/fiber";
 import type {Mesh} from "three";
 import {useRef} from "react";
