@@ -16,8 +16,8 @@ export default function Ship(props) {
 
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
-        shipRef.current.rotation.z = Math.sin(t * 2) * 0.05; // Gentle rocking
-        shipRef.current.position.y = Math.cos(t * 4) * 0.05;  // Slight engine vibration
+        shipRef.current.rotation.z = Math.sin(t * 2) * 0.02; // Gentle rocking
+        shipRef.current.position.y = Math.cos(t * 4) * 0.01;  // Slight engine vibration
     });
 
   return (
@@ -28,9 +28,9 @@ export default function Ship(props) {
 
         {/*engines*/}
         <mesh geometry={nodes.Object_91.geometry} material={materials.material_3} position={[-1.063, 1, 2.688]} rotation={[Math.PI / 2, Math.PI / 2, 0]}
-              material-emissive="#78cce2"
-              material-emissiveIntensity={2}
-              material-toneMapped={false}
+              // material-emissive="#78cce2"
+              // material-emissiveIntensity={2}
+              // material-toneMapped={false}
         />
       <mesh geometry={nodes.Object_105.geometry} material={materials.material_4} position={[-0.438, 0.894, 1]} />
       <mesh geometry={nodes.Object_114.geometry} material={materials.material_5} position={[0, 0.438, 1.813]} />
