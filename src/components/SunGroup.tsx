@@ -1,5 +1,5 @@
 import {useFrame} from "@react-three/fiber";
-import type {Mesh} from "three";
+import {DoubleSide, type Mesh} from "three";
 import {useRef, useState} from "react";
 import Sun from "./models/Sun.tsx";
 import {Html, Line, useCursor} from "@react-three/drei";
@@ -23,13 +23,30 @@ export default function SunGroup(){
     return (
         <>
             <group>
-                <Sun
-                    scale={hover ? .3 : .25}
-                    ref={meshRef}
-                    onPointerOver={() => setHover(true)}
-                    onPointerOut={() => setHover(false)}
-                    onClick={() => handleClick()}
-                />
+                <group>
+                    <Sun
+                        scale={hover ? .3 : .25}
+                        ref={meshRef}
+                        onPointerOver={() => setHover(true)}
+                        onPointerOut={() => setHover(false)}
+                        onClick={() => handleClick()}
+                    />
+
+                    {hover &&
+                        <mesh>
+                            <ringGeometry
+                                args={[.7, .8, 128]}
+                            />
+                            <meshStandardMaterial
+                                color="orange"
+                                transparent
+                                opacity={.4}
+                                side={DoubleSide}
+                            />
+                        </mesh>
+                    }
+                </group>
+
                 <Line
                     points={[[0, 0, 0], [0, -1.2, 0], [0.5, -1.2, 0]]}
                     color="black"
