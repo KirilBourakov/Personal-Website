@@ -1,8 +1,9 @@
 import {useFrame} from "@react-three/fiber";
-import {DoubleSide, type Mesh} from "three";
+import {DoubleSide, Group, type Mesh} from "three";
 import {useRef, useState} from "react";
 import Sun from "./models/Sun.tsx";
 import {Html, Line, useCursor} from "@react-three/drei";
+import { useTransition, useSpring, animated } from '@react-spring/three'
 
 export default function SunGroup(){
     const [hover, setHover] = useState(false);
@@ -32,19 +33,7 @@ export default function SunGroup(){
                         onClick={() => handleClick()}
                     />
 
-                    {hover &&
-                        <mesh>
-                            <ringGeometry
-                                args={[.7, .8, 128]}
-                            />
-                            <meshStandardMaterial
-                                color="orange"
-                                transparent
-                                opacity={.4}
-                                side={DoubleSide}
-                            />
-                        </mesh>
-                    }
+                    <HoverRing hover={hover} />
                 </group>
 
                 <Line
@@ -64,6 +53,55 @@ export default function SunGroup(){
                 </Html>
             </group>
         </>
+    )
+}
 
+function HoverRing({ hover }: { hover: boolean }) {
+    const transitions = useTransition(hover, {
+        from: { scale: 0, opacity: 0 },
+        enter: { scale: 1, opacity: 0.4 },
+        leave: { scale: 0, opacity: 0 },
+        config: { mass: 1, tension: 170, friction: 26 },
+    })
+
+    return transitions((styles, item) =>
+        item ? <SpinningRing styles={styles} /> : null
+    )
+}
+
+function SpinningRing({ styles }: { styles: any }) {
+    const ringRef = useRef<Group>(null!)
+
+    useFrame((state, delta) => {
+        ringRef.current.rotation.z += delta
+    })
+
+    const chunks = [0, 1, 2, 3]
+    const segmentLength = 1.309
+    const offset = Math.PI / 2 - segmentLength
+
+    return (
+        <animated.group ref={ringRef} scale={styles.scale}>
+            {chunks.map((i) => (
+                <mesh key={i}>
+                    <ringGeometry
+                        args={[
+                            0.7,           // innerRadius
+                            0.8,           // outerRadius
+                            32,            // thetaSegments
+                            1,             // phiSegments
+                            (i * segmentLength) + (i * offset), // thetaStart
+                            segmentLength      // thetaLength
+                        ]}
+                    />
+                    <animated.meshStandardMaterial
+                        color="orange"
+                        transparent
+                        opacity={styles.opacity}
+                        side={DoubleSide}
+                    />
+                </mesh>
+            ))}
+        </animated.group>
     )
 }
